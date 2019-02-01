@@ -1,11 +1,21 @@
 body {
     background-image: url("background1.jpg");
     background-size: cover;
-
 }
 
-.header{
+#header-background{
+    background-color:rgba(44, 82, 185, 0.5);
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    background-position: center;
+    padding: 5px;
+}
+#header{
     text-align: center; 
+    font-size: 25px;
+
+
+
 }
 
 .about{
