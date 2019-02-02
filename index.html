@@ -12,6 +12,8 @@
 </div>
 </div>
 
+<h2 id="Date"></h2>
+
 <ul>
 <li id="MonFood1"> </li>
 <li id="MonFood2"> </li>
@@ -63,46 +65,47 @@ const results = getData().then(results => {
 
 var d = new Date();
   var weekday = new Array(7);
-  weekday[0] = "Sunday";
-  weekday[1] = "Monday";
-  weekday[2] = "Tuesday";
-  weekday[3] = "Wednesday";
-  weekday[4] = "Thursday";
-  weekday[5] = "Friday";
-  weekday[6] = "Saturday";
+  weekday[0] = "Söndag";
+  weekday[1] = "Måndag";
+  weekday[2] = "Tisdag";
+  weekday[3] = "Onsdag";
+  weekday[4] = "Torsdag";
+  weekday[5] = "Fredag";
+  weekday[6] = "Lördag";
 
   var n = weekday[d.getUTCDay()];
+  document.getElementById("Date").innerHTML = "Datum: " + n
 document.addEventListener("DOMContentLoaded", 
 function(event){
-   if(n == "Monday"){
+   if(n == "Måndag"){
     document.getElementById("MonFood1").style.fontSize = "larger";
     document.getElementById("MonFood2").style.fontSize = "larger";
     console.log(n);
   }
-  else if(n == "Tuesday"){
+  else if(n == "Tisdag"){
     document.getElementById("TueFood1").style.fontSize = "larger";
     document.getElementById("TueFood2").style.fontSize = "larger";
     console.log(n);
   }
-  else if(n == "Wednesday"){
+  else if(n == "Onsdag"){
     document.getElementById("WedFood1").style.fontSize = "larger";
     document.getElementById("WedFood2").style.fontSize = "larger";
     console.log(n);
   }
-  else if(n == "Thursday"){
+  else if(n == "Torsdag"){
     document.getElementById("ThuFood1").style.fontSize = "larger";
     document.getElementById("ThuFood2").style.fontSize = "larger";
     console.log(n);
   }
-  else if(n == "Friday"){
+  else if(n == "Fredag"){
     document.getElementById("FriFood1").style.fontSize = "larger";
     document.getElementById("FriFood2").style.fontSize = "larger";
     console.log(n);
   }
-  else if(n == "Saturday"){
+  else if(n == "Lördag"){
     console.log(n);
   }
-  else if(n == "Sunday"){
+  else if(n == "Söndag"){
     console.log(n);
   }
 })
