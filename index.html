@@ -64,6 +64,8 @@ const results = getData().then(results => {
 });
 
 var d = new Date();
+var MonthSTR = d.getMonth();
+var DateSTR = d.getDate();
   var weekday = new Array(7);
   weekday[0] = "Söndag";
   weekday[1] = "Måndag";
@@ -73,40 +75,40 @@ var d = new Date();
   weekday[5] = "Fredag";
   weekday[6] = "Lördag";
 
-  var n = weekday[d.getUTCDay()];
-  document.getElementById("Date").innerHTML = "Datum: " + n
+  var DaySTR = weekday[d.getUTCDay()];
+  document.getElementById("Date").innerHTML = "Datum: " + DaySTR + ", " + DateSTR + "/" + parseInt(MonthSTR + 1);
 document.addEventListener("DOMContentLoaded", 
 function(event){
-   if(n == "Måndag"){
+   if(DaySTR == "Måndag"){
     document.getElementById("MonFood1").style.fontSize = "larger";
     document.getElementById("MonFood2").style.fontSize = "larger";
-    console.log(n);
+    console.log(DaySTR);
   }
-  else if(n == "Tisdag"){
+  else if(DaySTR == "Tisdag"){
     document.getElementById("TueFood1").style.fontSize = "larger";
     document.getElementById("TueFood2").style.fontSize = "larger";
-    console.log(n);
+    console.log(DaySTR);
   }
-  else if(n == "Onsdag"){
+  else if(DaySTR == "Onsdag"){
     document.getElementById("WedFood1").style.fontSize = "larger";
     document.getElementById("WedFood2").style.fontSize = "larger";
-    console.log(n);
+    console.log(DaySTR);
   }
-  else if(n == "Torsdag"){
+  else if(DaySTR == "Torsdag"){
     document.getElementById("ThuFood1").style.fontSize = "larger";
     document.getElementById("ThuFood2").style.fontSize = "larger";
-    console.log(n);
+    console.log(DaySTR);
   }
-  else if(n == "Fredag"){
+  else if(DaySTR == "Fredag"){
     document.getElementById("FriFood1").style.fontSize = "larger";
     document.getElementById("FriFood2").style.fontSize = "larger";
-    console.log(n);
+    console.log(DaySTR);
   }
-  else if(n == "Lördag"){
-    console.log(n);
+  else if(DaySTR == "Lördag"){
+    console.log(DaySTR);
   }
-  else if(n == "Söndag"){
-    console.log(n);
+  else if(DaySTR == "Söndag"){
+    console.log(DaySTR);
   }
 })
 </script>
