@@ -13,7 +13,10 @@
 </div>
 
 <h2 id="Date"></h2>
+
+
 <div id="Foodlist">
+<p>Matsedel:</p>
 <ul>
 <li id="MonFood1"> </li>
 <li id="MonFood2"> </li>
@@ -79,7 +82,6 @@ var DateSTR = d.getDate();
   document.getElementById("Date").innerHTML = "Datum: " + DaySTR + ", " + DateSTR + "/" + parseInt(MonthSTR + 1);
 document.addEventListener("DOMContentLoaded", 
 function(event){
-    DaySTR = "Måndag";
    if(DaySTR == "Måndag"){
     document.getElementById("MonFood1").style.fontWeight = "bold";
     document.getElementById("MonFood2").style.fontWeight = "bold";
@@ -112,6 +114,7 @@ function(event){
     console.log(DaySTR);
   }
 })
+
 </script>
 
 </body>

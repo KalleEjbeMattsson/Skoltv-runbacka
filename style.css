@@ -8,17 +8,26 @@ body {
     background-repeat: no-repeat;
     background-size: 500px 500px;
     background-position: center;
-    padding: 5px;
+    padding: 1px;
 }
 #header{
     text-align: center; 
-    font-size: 25px;
+    font-size: 30px;
+}
+#Date{
+    font-size: 50px;
+    padding: 0px;
+    margin: 5px;
 }
 #Foodlist{
-    font-size: 25px;
-    background-color: white;
     padding: 5px;
-    background-position: left;
+    font-size: 35px;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 800px, transparent 20px, transparent);
+}
+
+#Foodlist p{
+    font-size: 50px;
+    margin: 0px;
 }
 
 
@@ -28,7 +37,7 @@ position: fixed;
 left: 0;
 bottom: 0;
 width: 100%;
-background-color: aqua;
+background-color: rgba(0, 255, 255, 0.726);
 color: black;
 text-align: left;
 font-size: 12px;
