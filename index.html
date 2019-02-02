@@ -12,12 +12,31 @@
 </div>
 </div>
 
+<p id="food"></p>
+
 <div class="about">
 <ul>Underhålls av 
 <li>Kalle 8A | kaejb_04@edu.sollentuna.se</li>
 <li>Theodor 8B | thbjo_04@edu.sollentuna.se</li>  
 </ul>
 </div>
+
+<script>
+    
+async function getData() {
+ 
+ return await fetch('https://skolmaten.se/api/openmeal/v2/meals.json?distributorID=5998825718153216').then(response => response.json());
+
+}
+
+const results = getData().then(results => {
+    document.getElementById("food").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"]) + (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
+    
+});
+
+
+
+</script>
 
 </body>
 </html>
