@@ -13,10 +13,15 @@ body {
 #header{
     text-align: center; 
     font-size: 25px;
-
-
-
 }
+#Foodlist{
+    font-size: 25px;
+    background-color: white;
+    padding: 5px;
+    background-position: left;
+}
+
+
 
 .about{
 position: fixed;

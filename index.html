@@ -13,7 +13,7 @@
 </div>
 
 <h2 id="Date"></h2>
-
+<div id="Foodlist">
 <ul>
 <li id="MonFood1"> </li>
 <li id="MonFood2"> </li>
@@ -34,7 +34,7 @@
 <li id="FriFood1"> </li>
 <li id="FriFood2"> </li>
 </ul>
-
+</div>
 <div class="about">
 <ul>Underhålls av 
 <li>Kalle 8A | kaejb_04@edu.sollentuna.se</li>
@@ -79,29 +79,30 @@ var DateSTR = d.getDate();
   document.getElementById("Date").innerHTML = "Datum: " + DaySTR + ", " + DateSTR + "/" + parseInt(MonthSTR + 1);
 document.addEventListener("DOMContentLoaded", 
 function(event){
+    DaySTR = "Måndag";
    if(DaySTR == "Måndag"){
-    document.getElementById("MonFood1").style.fontSize = "larger";
-    document.getElementById("MonFood2").style.fontSize = "larger";
+    document.getElementById("MonFood1").style.fontWeight = "bold";
+    document.getElementById("MonFood2").style.fontWeight = "bold";
     console.log(DaySTR);
   }
   else if(DaySTR == "Tisdag"){
-    document.getElementById("TueFood1").style.fontSize = "larger";
-    document.getElementById("TueFood2").style.fontSize = "larger";
+    document.getElementById("TueFood1").style.fontWeight = "bold";
+    document.getElementById("TueFood2").style.fontWeight = "bold";
     console.log(DaySTR);
   }
   else if(DaySTR == "Onsdag"){
-    document.getElementById("WedFood1").style.fontSize = "larger";
-    document.getElementById("WedFood2").style.fontSize = "larger";
+    document.getElementById("WedFood1").style.fontWeight = "bold";
+    document.getElementById("WedFood2").style.fontWeight = "bold";
     console.log(DaySTR);
   }
   else if(DaySTR == "Torsdag"){
-    document.getElementById("ThuFood1").style.fontSize = "larger";
-    document.getElementById("ThuFood2").style.fontSize = "larger";
+    document.getElementById("ThuFood1").style.fontWeight = "bold";
+    document.getElementById("ThuFood2").style.fontWeight = "bold";
     console.log(DaySTR);
   }
   else if(DaySTR == "Fredag"){
-    document.getElementById("FriFood1").style.fontSize = "larger";
-    document.getElementById("FriFood2").style.fontSize = "larger";
+    document.getElementById("FriFood1").style.fontWeight = "bold";
+    document.getElementById("FriFood2").style.fontWeight = "bold";
     console.log(DaySTR);
   }
   else if(DaySTR == "Lördag"){
