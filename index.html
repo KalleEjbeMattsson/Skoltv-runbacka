@@ -12,7 +12,26 @@
 </div>
 </div>
 
-<p id="food"></p>
+<ul>
+<li id="MonFood1"> </li>
+<li id="MonFood2"> </li>
+</ul>
+<ul>
+<li id="TueFood1"> </li>
+<li id="TueFood2"> </li>
+</ul>
+<ul>
+<li id="WedFood1"> </li>
+<li id="WedFood2"> </li>
+</ul>
+<ul>
+<li id="ThuFood1"> </li>
+<li id="ThuFood2"> </li>
+</ul>
+<ul>
+<li id="FriFood1"> </li>
+<li id="FriFood2"> </li>
+</ul>
 
 <div class="about">
 <ul>Underhålls av 
@@ -30,12 +49,63 @@ async function getData() {
 }
 
 const results = getData().then(results => {
-    document.getElementById("food").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"]) + (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
-    
+    document.getElementById("MonFood1").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["0"]["name"])
+    document.getElementById("MonFood2").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
+    document.getElementById("TueFood1").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["0"]["name"])
+    document.getElementById("TueFood2").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["1"]["name"])
+    document.getElementById("WedFood1").innerHTML = (results["data"]["0"]["meals"]["2"]["courses"]["0"]["name"])
+    document.getElementById("WedFood2").innerHTML = (results["data"]["0"]["meals"]["2"]["courses"]["1"]["name"])
+    document.getElementById("ThuFood1").innerHTML = (results["data"]["0"]["meals"]["3"]["courses"]["0"]["name"])
+    document.getElementById("ThuFood2").innerHTML = (results["data"]["0"]["meals"]["3"]["courses"]["1"]["name"])
+    document.getElementById("FriFood1").innerHTML = (results["data"]["0"]["meals"]["4"]["courses"]["0"]["name"])
+    document.getElementById("FriFood2").innerHTML = (results["data"]["0"]["meals"]["4"]["courses"]["1"]["name"])
 });
 
+var d = new Date();
+  var weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
 
-
+  var n = weekday[d.getUTCDay()];
+document.addEventListener("DOMContentLoaded", 
+function(event){
+   if(n == "Monday"){
+    document.getElementById("MonFood1").style.fontSize = "larger";
+    document.getElementById("MonFood2").style.fontSize = "larger";
+    console.log(n);
+  }
+  else if(n == "Tuesday"){
+    document.getElementById("TueFood1").style.fontSize = "larger";
+    document.getElementById("TueFood2").style.fontSize = "larger";
+    console.log(n);
+  }
+  else if(n == "Wednesday"){
+    document.getElementById("WedFood1").style.fontSize = "larger";
+    document.getElementById("WedFood2").style.fontSize = "larger";
+    console.log(n);
+  }
+  else if(n == "Thursday"){
+    document.getElementById("ThuFood1").style.fontSize = "larger";
+    document.getElementById("ThuFood2").style.fontSize = "larger";
+    console.log(n);
+  }
+  else if(n == "Friday"){
+    document.getElementById("FriFood1").style.fontSize = "larger";
+    document.getElementById("FriFood2").style.fontSize = "larger";
+    console.log(n);
+  }
+  else if(n == "Saturday"){
+    console.log(n);
+  }
+  else if(n == "Sunday"){
+    console.log(n);
+  }
+})
 </script>
 
 </body>
