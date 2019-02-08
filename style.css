@@ -22,7 +22,7 @@ body {
 #Foodlist{
     padding: 5px;
     font-size: 35px;
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 800px, transparent 20px, transparent);
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 900px, transparent 20px, transparent);
 }
 
 #Foodlist p{
@@ -30,6 +30,12 @@ body {
     margin: 0px;
 }
 
+#MonFood1 {
+    font-weight: bold;
+}
+#MonFood2 {
+    font-weight: bold;
+}
 
 
 .about{

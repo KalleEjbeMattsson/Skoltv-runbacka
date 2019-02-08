@@ -16,32 +16,24 @@
 
 
 <div id="Foodlist">
-<p>Matsedel:</p>
+<p>Idag:</p>
 <ul>
 <li id="MonFood1"> </li>
 <li id="MonFood2"> </li>
 </ul>
+<p>Imorgon:</p>
 <ul>
 <li id="TueFood1"> </li>
 <li id="TueFood2"> </li>
 </ul>
-<ul>
-<li id="WedFood1"> </li>
-<li id="WedFood2"> </li>
-</ul>
-<ul>
-<li id="ThuFood1"> </li>
-<li id="ThuFood2"> </li>
-</ul>
-<ul>
-<li id="FriFood1"> </li>
-<li id="FriFood2"> </li>
+
 </ul>
 </div>
 <div class="about">
 <ul>Underhålls av 
 <li>Kalle 8A | kaejb_04@edu.sollentuna.se</li>
 <li>Theodor 8B | thbjo_04@edu.sollentuna.se</li>  
+<li>Leo 8A | lewiv_04@edu.sollentuna.se</li>
 </ul>
 </div>
 
@@ -58,12 +50,7 @@ const results = getData().then(results => {
     document.getElementById("MonFood2").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
     document.getElementById("TueFood1").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["0"]["name"])
     document.getElementById("TueFood2").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["1"]["name"])
-    document.getElementById("WedFood1").innerHTML = (results["data"]["0"]["meals"]["2"]["courses"]["0"]["name"])
-    document.getElementById("WedFood2").innerHTML = (results["data"]["0"]["meals"]["2"]["courses"]["1"]["name"])
-    document.getElementById("ThuFood1").innerHTML = (results["data"]["0"]["meals"]["3"]["courses"]["0"]["name"])
-    document.getElementById("ThuFood2").innerHTML = (results["data"]["0"]["meals"]["3"]["courses"]["1"]["name"])
-    document.getElementById("FriFood1").innerHTML = (results["data"]["0"]["meals"]["4"]["courses"]["0"]["name"])
-    document.getElementById("FriFood2").innerHTML = (results["data"]["0"]["meals"]["4"]["courses"]["1"]["name"])
+
 });
 
 var d = new Date();
