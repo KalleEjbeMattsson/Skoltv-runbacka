@@ -21,8 +21,8 @@ body {
 }
 #Foodlist{
     padding: 5px;
-    font-size: 35px;
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 900px, transparent 20px, transparent);
+    font-size: 40px;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 1000px, transparent 20px, transparent);
 }
 
 
