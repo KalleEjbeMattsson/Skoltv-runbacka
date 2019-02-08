@@ -17,25 +17,17 @@
 
 <div id="Foodlist">
 <p>Matsedel:</p>
+    <p id="Today">Idag:</p>
+
+
 <ul>
 <li id="MonFood1"> </li>
 <li id="MonFood2"> </li>
 </ul>
+    <p id="Tomorrow">Imorgon:</p>
 <ul>
 <li id="TueFood1"> </li>
 <li id="TueFood2"> </li>
-</ul>
-<ul>
-<li id="WedFood1"> </li>
-<li id="WedFood2"> </li>
-</ul>
-<ul>
-<li id="ThuFood1"> </li>
-<li id="ThuFood2"> </li>
-</ul>
-<ul>
-<li id="FriFood1"> </li>
-<li id="FriFood2"> </li>
 </ul>
 </div>
 <div class="about">
@@ -46,7 +38,7 @@
 </div>
 
 <script>
-    
+    // Dagens mat och nästa mat
 async function getData() {
  
  return await fetch('https://skolmaten.se/api/openmeal/v2/meals.json?distributorID=5998825718153216').then(response => response.json());
@@ -58,12 +50,7 @@ const results = getData().then(results => {
     document.getElementById("MonFood2").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
     document.getElementById("TueFood1").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["0"]["name"])
     document.getElementById("TueFood2").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["1"]["name"])
-    document.getElementById("WedFood1").innerHTML = (results["data"]["0"]["meals"]["2"]["courses"]["0"]["name"])
-    document.getElementById("WedFood2").innerHTML = (results["data"]["0"]["meals"]["2"]["courses"]["1"]["name"])
-    document.getElementById("ThuFood1").innerHTML = (results["data"]["0"]["meals"]["3"]["courses"]["0"]["name"])
-    document.getElementById("ThuFood2").innerHTML = (results["data"]["0"]["meals"]["3"]["courses"]["1"]["name"])
-    document.getElementById("FriFood1").innerHTML = (results["data"]["0"]["meals"]["4"]["courses"]["0"]["name"])
-    document.getElementById("FriFood2").innerHTML = (results["data"]["0"]["meals"]["4"]["courses"]["1"]["name"])
+
 });
 
 var d = new Date();
@@ -80,40 +67,7 @@ var DateSTR = d.getDate();
 
   var DaySTR = weekday[d.getUTCDay()];
   document.getElementById("Date").innerHTML = "Datum: " + DaySTR + ", " + DateSTR + "/" + parseInt(MonthSTR + 1);
-document.addEventListener("DOMContentLoaded", 
-function(event){
-   if(DaySTR == "Måndag"){
-    document.getElementById("MonFood1").style.fontWeight = "bold";
-    document.getElementById("MonFood2").style.fontWeight = "bold";
-    console.log(DaySTR);
-  }
-  else if(DaySTR == "Tisdag"){
-    document.getElementById("TueFood1").style.fontWeight = "bold";
-    document.getElementById("TueFood2").style.fontWeight = "bold";
-    console.log(DaySTR);
-  }
-  else if(DaySTR == "Onsdag"){
-    document.getElementById("WedFood1").style.fontWeight = "bold";
-    document.getElementById("WedFood2").style.fontWeight = "bold";
-    console.log(DaySTR);
-  }
-  else if(DaySTR == "Torsdag"){
-    document.getElementById("ThuFood1").style.fontWeight = "bold";
-    document.getElementById("ThuFood2").style.fontWeight = "bold";
-    console.log(DaySTR);
-  }
-  else if(DaySTR == "Fredag"){
-    document.getElementById("FriFood1").style.fontWeight = "bold";
-    document.getElementById("FriFood2").style.fontWeight = "bold";
-    console.log(DaySTR);
-  }
-  else if(DaySTR == "Lördag"){
-    console.log(DaySTR);
-  }
-  else if(DaySTR == "Söndag"){
-    console.log(DaySTR);
-  }
-})
+
 
 </script>
 
