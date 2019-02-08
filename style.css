@@ -1,53 +1,77 @@
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
 body {
     background-image: url("background1.jpg");
     background-size: cover;
 }
 
-#header-background{
-    background-color:rgba(44, 82, 185, 0.5);
+#header-background {
+    background-color: rgba(44, 82, 185, 0.5);
     background-repeat: no-repeat;
     background-size: 500px 500px;
     background-position: center;
-    padding: 1px;
+    border-radius: 10px;
+    margin: 10px;
 }
-#header{
-    text-align: center; 
+
+#header {
+    text-align: center;
     font-size: 30px;
+    padding: 20px;
 }
-#Date{
+
+#Date {
     font-size: 50px;
     padding: 0px;
     margin: 5px;
 }
-#Foodlist{
-    padding: 5px;
+
+#Foodlist {
+    margin-left: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.weekDisplay {
+    color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    padding: 4px;
     font-size: 35px;
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 900px, transparent 20px, transparent);
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: -20px;
 }
 
+.dayMeal {
+    color: rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
+}
 
-#Foodlist p{
-    font-size: 50px;
+.dayMeal>p {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.dayMeal>ul {
+    margin-top: 7px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.about {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 255, 255, 0.726);
+    color: black;
+    text-align: left;
+    font-size: 12px;
+    line-height: 12px;
     margin: 0px;
-}
-
-#MonFood1 {
-    font-weight: bold;
-}
-#MonFood2 {
-    font-weight: bold;
-}
-
-
-.about{
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: rgba(0, 255, 255, 0.726);
-color: black;
-text-align: left;
-font-size: 12px;
-line-height: 12px;
-margin: 0px;  
 }

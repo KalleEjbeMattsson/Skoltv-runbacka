@@ -27,6 +27,7 @@ getData().then(result => {
     var startWeek = currentDate.getWeekNumber();
 
     var element = document.createElement("h1");
+    element.classList.add("weekDisplay");
     element.innerHTML += "Den här veckan: " + startWeek;
     foodList.appendChild(element);
     var nextweek = false;
@@ -37,6 +38,7 @@ getData().then(result => {
         if (date.getWeekNumber() != startWeek && !nextweek) {
             var element = document.createElement("h1");
             element.innerHTML += "Nästa vecka: " + date.getWeekNumber();
+            element.classList.add("weekDisplay");
             foodList.appendChild(element);
             nextweek = true;
         }
@@ -48,13 +50,22 @@ getData().then(result => {
 
             div.innerHTML += "<p>" + weekdayMap[date.getDay() - 1] + ":</p>";
         }
-        div.innerHTML += "<ul>";
+        div.classList.add("dayMeal");
+        var string = "";
+
+        for (var i = 0; i < meal.courses.length; i++) {
+            string += "<li>" + meal.courses[i].name + "</li>";
+        }
+        div.innerHTML += "<ul>" + string;
+
         console.log(meal);
-        meal.courses.forEach((course) => {
-            div.innerHTML += "<li>" + course.name + "</li>";
-        });
+
+
 
         div.innerHTML += "</ul>";
+
+        console.log(div.innerHTML);
+
 
         foodList.appendChild(div);
     });
