@@ -52,8 +52,13 @@ getData().then(result => {
         }
         div.classList.add("dayMeal");
         var string = "";
-
+        var firstCourse = null;
         for (var i = 0; i < meal.courses.length; i++) {
+            if (firstCourse == null) {
+                firstCourse = meal.courses[i].name;
+            } else if (firstCourse == meal.courses[i].name) {
+                continue;
+            }
             string += "<li>" + meal.courses[i].name + "</li>";
         }
         div.innerHTML += "<ul>" + string;

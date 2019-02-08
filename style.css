@@ -14,7 +14,7 @@ body {
     background-size: 500px 500px;
     background-position: center;
     border-radius: 10px;
-    margin: 10px;
+    margin: 20px;
 }
 
 #header {
@@ -30,7 +30,7 @@ body {
 }
 
 #Foodlist {
-    margin-left: 10px;
+    margin-left: 20px;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.2);
     width: fit-content;
