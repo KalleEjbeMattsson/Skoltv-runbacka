@@ -1,4 +1,3 @@
- //LEO TESTAR OCH UPDATERA
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +5,6 @@
     <link href="style.css" type="text/css" rel="stylesheet">
     <title>Runbackas tv</title>
 </head>
-<!--Hello-->
 
 <body>
     <div id="header-background">
@@ -15,21 +13,10 @@
         </div>
     </div>
 
-    <h2 id="Date"></h2>
-
 
     <div id="Foodlist">
-        <p>Idag:</p>
-        <ul>
-            <li id="MonFood1"> </li>
-            <li id="MonFood2"> </li>
-        </ul>
-        <p>Imorgon:</p>
-        <ul>
-            <li id="TueFood1"> </li>
-            <li id="TueFood2"> </li>
-        </ul>
     </div>
+
     <div class="about">
         <ul>Underhålls av
             <li>Kalle 8A | kaejb_04@edu.sollentuna.se</li>
@@ -38,37 +25,7 @@
         </ul>
     </div>
 
-    <script>
-        // Dagens mat och nästa mat
-        async function getData() {
-
-            return await fetch('https://skolmaten.se/api/openmeal/v2/meals.json?distributorID=5998825718153216').then(response => response.json());
-
-        }
-        alert("HEllo");
-        const results = getData().then(results => {
-            document.getElementById("MonFood1").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["0"]["name"])
-            document.getElementById("MonFood2").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
-            document.getElementById("TueFood1").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["0"]["name"])
-            document.getElementById("TueFood2").innerHTML = (results["data"]["0"]["meals"]["1"]["courses"]["1"]["name"])
-
-        });
-
-        var d = new Date();
-        var MonthSTR = d.getMonth();
-        var DateSTR = d.getDate();
-        var weekday = new Array(7);
-        weekday[0] = "Söndag";
-        weekday[1] = "Måndag";
-        weekday[2] = "Tisdag";
-        weekday[3] = "Onsdag";
-        weekday[4] = "Torsdag";
-        weekday[5] = "Fredag";
-        weekday[6] = "Lördag";
-
-        var DaySTR = weekday[d.getUTCDay()];
-        document.getElementById("Date").innerHTML = "Datum: " + DaySTR + ", " + DateSTR + "/" + parseInt(MonthSTR + 1);
-    </script>
+    <script src="./skolmaten.js"></script>
 
 </body>
 
