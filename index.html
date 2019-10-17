@@ -1,42 +1,226 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<link href="style.css" type="text/css" rel="stylesheet">
-<title>Runbackas tv</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Tv Runbacka</title>
+
+    <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-<div id="header-background">
-<div id="header">
-<h1>Runbackas tv</h1>
-</div>
-</div>
+    <div id="header-background">
+        <div id="header">
+            <h1>Runbackas tv</h1>
+        </div>
+    </div>
+    <div id="food-menu">
+        <h2>Matsedel</h2>
+    </div>
 
-<p id="food"></p>
+    <div id="date-menu">
+        <h2>Datum</h2>
+        <h3 id="date-currentdate"></h3>
+        <h3 id="date-currenttime"></h3>
+        <h3 id="date-currentweek"></h3>
+    </div>
 
-<div class="about">
-<ul>Underhålls av 
-<li>Kalle 8A | kaejb_04@edu.sollentuna.se</li>
-<li>Theodor 8B | thbjo_04@edu.sollentuna.se</li>  
-</ul>
-</div>
+    <div class="about">
+        <h4>Underhålls av:</h4>
+        <ul>
+            <li>Kalle 9A | kaejb_04@edu.sollentuna.se</li>
+            <li>Theodor 9B | thbjo_04@edu.sollentuna.se</li>
+            <li>Leo 9A | lewiv@edu.sollentuna.se</li>
+        </ul>
+    </div>
 
-<script>
-    
-async function getData() {
- 
- return await fetch('https://skolmaten.se/api/openmeal/v2/meals.json?distributorID=5998825718153216').then(response => response.json());
+    <script>
+        Date.prototype.getWeek = function() {
+            var onejan = new Date(this.getFullYear(), 0, 1);
+            return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+        }
+        var elementDate = document.getElementById("date-currentdate");
+        var elementTime = document.getElementById("date-currenttime");
+        var elementWeek = document.getElementById("date-currentweek");
+        setInterval(update, 500);
 
-}
+        function update() {
+            elementTime.innerText = new Date().toTimeString();
+            elementDate.innerText = new Date().toDateString();
+            elementWeek.innerText = new Date().getWeek();
+        }
 
-const results = getData().then(results => {
-    document.getElementById("food").innerHTML = (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"]) + (results["data"]["0"]["meals"]["0"]["courses"]["1"]["name"])
-    
-});
+        var DayOfWeek = new Array("Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag");
+
+        async function getData() {
+
+            return await fetch('https://skolmaten.se/api/openmeal/v2/meals.json?distributorID=5998825718153216').then(response => response.json());
+
+        }
+
+        function FixSpelling(str) {
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+                if (char == "," || char == ".") {
+                    let endIndex = i;
+                    if (str[i - 1] == " ") {
+                        var tmp = str.split(''); // convert to an array
+                        tmp.splice(i - 1, 1); // remove 1 element from the array (adjusting for non-zero-indexed counts)
+                        str = tmp.join(''); // reconstruct the string
+                        i--;
+                    }
+                    if (str[i + 1] != " ") {
+
+                        strArr = str.split('');
+                        strArr.splice(i + 1, 0, ' ');
+                        str = strArr.join('');
+                        i--;
+                    }
+                }
+            }
+
+            return str;
+        }
+        const results = getData().then(results => {
+            var week = new Date().getUTCDay();
+            week = 3;
 
 
+            var food = {
 
-</script>
+            }
+            var foodDay = week - 1;
+
+            var data = results.data[0];
+            console.log(data);
+            data.meals.forEach((meal, index) => {
+
+                var foodMenu = document.getElementById("food-menu");
+                var elementDay = document.createElement("h3");
+                var elementDiv = document.createElement("div");
+                elementDiv.classList.add("servinglist");
+                var elementMainMeal = document.createElement("p");
+                var elementVegMeal = document.createElement("p");
+
+                if (foodDay == 5) {
+                    var elementNextWeek = document.createElement("h2");
+                    elementNextWeek.innerText = "Nästa vecka";
+                    foodMenu.appendChild(elementNextWeek);
+                    console.log("Nästa vecka");
+                    foodDay = 0;
+                }
+
+                if (index == 0) {
+                    elementDay.innerText = "Idag";
+                } else if (index == 1 && week != 5) {
+                    elementDay.innerText = "Imorgon";
+                } else {
+                    elementDay.innerText = DayOfWeek[foodDay];
+                }
+                elementMainMeal.innerText = FixSpelling(meal.courses[0].name);
+                elementVegMeal.innerText = FixSpelling(meal.courses[1].name);
+
+
+                foodDay++;
+
+                elementDiv.appendChild(elementMainMeal);
+                elementDiv.appendChild(elementVegMeal);
+
+                foodMenu.appendChild(elementDay);
+                foodMenu.appendChild(elementDiv);
+            });
+
+
+        });
+    </script>
+    <script>
+        var canvas = document.getElementById("clockcanvas");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.clientHeight / 3;
+        console.log(radius);
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        setInterval(drawClock, 1000);
+
+        function drawClock() {
+            drawFace(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawTime(ctx, radius);
+        }
+
+        function drawFace(ctx, radius) {
+            var grad;
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+            grad.addColorStop(0, '#333');
+            grad.addColorStop(0.5, 'white');
+            grad.addColorStop(1, '#333');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = radius * 0.1;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+            ctx.fillStyle = '#333';
+            ctx.fill();
+        }
+
+        function drawNumbers(ctx, radius) {
+            var ang;
+            var num;
+            ctx.font = radius * 0.15 + "px arial";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            for (num = 1; num < 13; num++) {
+                ang = num * Math.PI / 6;
+                ctx.rotate(ang);
+                ctx.translate(0, -radius * 0.85);
+                ctx.rotate(-ang);
+                ctx.fillText(num.toString(), 0, 0);
+                ctx.rotate(ang);
+                ctx.translate(0, radius * 0.85);
+                ctx.rotate(-ang);
+            }
+        }
+
+        function drawTime(ctx, radius) {
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //hour
+            hour = hour % 12;
+            hour = (hour * Math.PI / 6) +
+                (minute * Math.PI / (6 * 60)) +
+                (second * Math.PI / (360 * 60));
+            drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+            //minute
+            minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+            drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+            // second
+            second = (second * Math.PI / 30);
+            drawHand(ctx, second, radius * 0.9, radius * 0.02);
+        }
+
+        function drawHand(ctx, pos, length, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.moveTo(0, 0);
+            ctx.rotate(pos);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+    </script>
 
 </body>
+
 </html>
