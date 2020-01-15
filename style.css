@@ -1,53 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-image: url("background1.jpg");
     background-size: cover;
 }
 
-#header-background{
-    background-color:rgba(44, 82, 185, 0.5);
+#header-background {
+    background-color: rgba(44, 82, 185, 0.5);
     background-repeat: no-repeat;
     background-size: 500px 500px;
     background-position: center;
-    padding: 1px;
-}
-#header{
-    text-align: center; 
-    font-size: 30px;
-}
-#Date{
-    font-size: 50px;
-    padding: 0px;
-    margin: 5px;
-}
-#Foodlist{
-    padding: 5px;
-    font-size: 40px;
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.801) 1000px, transparent 20px, transparent);
+    padding: 2vh;
+    margin: 1vh;
 }
 
-
-#Foodlist p{
-    font-size: 50px;
-    margin: 0px;
+#header {
+    text-align: center;
+    font-size: 5vh;
 }
 
-#MonFood1 {
-    font-weight: bold;
+.about {
+    width: 15vw;
+    padding: 1vh;
+    margin: 1vh;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(44, 82, 185, 0.5);
+    text-align: left;
+}
+
+.about>h4 {
+    color: black;
+    font-size: 1.2vh;
+    line-height: 1.2vh;
+    margin-bottom: 0.5vh;
+}
+
+.about>ul>li {
+    color: black;
+    font-weight: 300;
+    font-size: 1vh;
+    line-height: 1vh;
+    margin-left: 2vh;
+}
+
+#food-menu {
+    float: left;
+    width: 30%;
+    margin: 3vh;
+}
+
+#food-menu>h2 {
+    color: rgba(44, 82, 185, 1);
+    text-align: center;
+    margin-bottom: 0.5vh;
+    font-size: 3vh;
+}
+
+#food-menu>h3 {
+    color: rgba(44, 82, 185, 1);
+    text-align: center;
+    font-size: 2.5vh;
+}
+
+#food-menu p {
+    text-align: center;
+    color: hsl(209, 100%, 10%);
+    font-weight: 550;
+    font-size: 2vh;
+}
+
+.servinglist {
+    text-align: center;
+    margin-bottom: 2vh;
 }
 #MonFood2 {
     font-weight: bold;
 }
 
 
-.about{
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
-background-color: rgba(0, 255, 255, 0.726);
-color: black;
-text-align: left;
-font-size: 12px;
-line-height: 12px;
-margin: 0px;  
+#date-menu {
+    float: left;
 }
