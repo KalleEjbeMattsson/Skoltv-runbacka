@@ -3,10 +3,10 @@
     padding: 0;
 }
 
-body {
+/* body {
     background-image: url("background1.jpg");
     background-size: cover;
-}
+}*/
 
 #header-background {
     background-color: rgba(44, 82, 185, 0.5);
@@ -55,18 +55,22 @@ body {
 }
 
 #food-menu>h2 {
-    color: rgba(44, 82, 185, 1);
+    color: rgb(0, 0, 0);
     text-align: center;
     margin-bottom: 0.5vh;
-    font-size: 3vh;
+    font-size: 4vh;
 }
 
+
 #food-menu>h3 {
-    color: rgba(44, 82, 185, 1);
+    color: rgb(0, 0, 0);
     text-align: center;
     font-size: 2.5vh;
 }
 
+#food-menu>h5 {
+    font-size: 5vh;
+}
 #food-menu p {
     text-align: center;
     color: hsl(209, 100%, 10%);
@@ -78,7 +82,11 @@ body {
     text-align: center;
     margin-bottom: 2vh;
 }
+#MonFood2 {
+    font-weight: bold;
+}
+
 
 #date-menu {
-    float: left;
+    float: right;
 }
