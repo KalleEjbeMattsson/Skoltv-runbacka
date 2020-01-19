@@ -17,11 +17,11 @@
 <body>
     <div id="header-background">
         <div id="header">
-            <h1>Runbackas tv</h1>
+            <h1>Matsedel</h1>
         </div>
     </div>
     <div id="food-menu">
-        <h2>Matsedel</h2>
+        <h2></h2>
     </div>
 
     <div id="date-menu">
@@ -31,14 +31,6 @@
         <h3 id="date-currentweek"></h3>
     </div>
 
-    <div class="about">
-        <h4>Underhålls av:</h4>
-        <ul>
-            <li>Kalle 9A | kaejb_04@edu.sollentuna.se</li>
-            <li>Theodor 9B | thbjo_04@edu.sollentuna.se</li>
-            <li>Leo 9A | lewiv@edu.sollentuna.se</li>
-        </ul>
-    </div>
 
     <script>
         Date.prototype.getWeek = function() {
@@ -89,7 +81,7 @@
         }
         const results = getData().then(results => {
             var week = new Date().getUTCDay();
-            week = 3;
+           // week = 3;
 
 
             var food = {
