@@ -34,7 +34,7 @@
 }
 
 .about>h4 {
-    color: black;
+    color: rgb(0, 0, 0);
     font-size: 1.2vh;
     line-height: 1.2vh;
     margin-bottom: 0.5vh;
@@ -50,32 +50,34 @@
 
 #food-menu {
     float: left;
-    width: 30%;
+    width: 95%;
     margin: 3vh;
+    color: rgb(0, 0, 0);
 }
 
 #food-menu>h2 {
     color: rgb(0, 0, 0);
     text-align: center;
-    margin-bottom: 0.5vh;
+    margin-rgb(0, 0, 0)
+    font-size: 6vh;
+}
+
+
+#food-menu>h3 { 
+    color: rgb(0, 0, 0);
+    text-align: center;
     font-size: 4vh;
 }
 
-
-#food-menu>h3 {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-size: 2.5vh;
-}
-
 #food-menu>h5 {
-    font-size: 5vh;
+    font-size: 7.5vh;
 }
 #food-menu p {
     text-align: center;
-    color: hsl(209, 100%, 10%);
-    font-weight: 550;
-    font-size: 2vh;
+    color: hsl(0, 0%, 0%);
+    font-weight: 400;
+    font-size: 3vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .servinglist {
@@ -89,4 +91,5 @@
 
 #date-menu {
     float: right;
+    font-size: 0vh;
 }
